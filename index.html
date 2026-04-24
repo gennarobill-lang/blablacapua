@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blabla Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7f6;color:#1a2f23}
+header{background:#fff;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-box{width:55px;height:55px;background:#0b7a33;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold}
+.logo-text{font-weight:900;font-size:22px;color:#0b7a33}
+.home-btn{background:#25D366;color:#fff;border:none;padding:10px 14px;border-radius:10px;font-weight:bold;cursor:pointer}
+
+.custom-hero{position:relative;height:320px;overflow:hidden;background:linear-gradient(135deg,#064d20 0%,#0b7a33 45%,#13a84c 100%);display:flex;align-items:center;justify-content:center}
+.tech-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:42px 42px;opacity:.55;animation:bgMove 12s linear infinite}
+.hero-overlay{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.16)}
+.hero-title{margin:0;font-family:'Bungee',cursive;font-size:52px;font-weight:400;color:#fff;text-align:center;letter-spacing:2px;text-shadow:0 5px 18px rgba(0,0,0,.55);line-height:1.15;animation:titlePulse 3.6s ease-in-out infinite}
+@keyframes titlePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@keyframes bgMove{from{background-position:0 0,0 0}to{background-position:42px 42px,42px 42px}}
+
+.big-cats{display:flex;gap:15px;justify-content:center;padding:20px;flex-wrap:wrap}
+.big-btn{background:#25D366;color:#fff;padding:18px 24px;border-radius:14px;font-weight:800;min-width:220px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,.15);border:none;cursor:pointer;font-size:16px}
+.big-btn:hover,.home-btn:hover{background:#1ebe5d}
+
+.products-section{padding:30px 24px}
+.section-head{text-align:center;margin-bottom:20px}
+.section-head h2{margin:0;color:#0b7a33;font-size:28px;font-weight:800}
+.products{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.card{background:#fff;border-radius:12px;padding:15px;border:1px solid #e5e5e5;display:flex;flex-direction:column;gap:10px}
+.img-box{width:100%;height:170px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #f0f0f0}
+.img-box img{width:100%;height:100%;object-fit:contain;display:block}
+.img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f3f3f3;color:#6b6b6b;font-weight:bold;text-align:center;padding:10px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:bold}
+.badge-offer{background:#e6f8eb;color:#0b7a33}
+.badge-cat{background:#eef3ff;color:#274f7a}
+.price{color:#0b7a33;font-weight:bold;font-size:20px}
+.desc{color:#5b6f61;min-height:40px}
+.wa-btn{background:#25D366;color:#fff;padding:10px 14px;border-radius:10px;font-weight:bold;text-decoration:none;display:inline-block;margin-top:auto;text-align:center}
+
+.contacts{background:#fff;padding:30px 24px;border-top:1px solid #e5e5e5;margin-top:20px;color:#1a2f23;text-align:center}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.contact-item{background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #e5e5e5}
+.contact-item strong{display:block;margin-bottom:8px;font-size:18px;color:#0b7a33}
+.contact-item p{font-size:16px;margin:0}
+.contacts a{color:#0b7a33;font-weight:bold;text-decoration:underline}
+
+@media (max-width:1200px){.products{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){header{padding:15px 18px;gap:12px;flex-wrap:wrap}.hero-title{font-size:34px}.products-section,.contacts{padding:20px 18px}}
+@media (max-width:600px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:500px){.products{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-box">B</div>
+    <div class="logo-text">BLABLA STORE</div>
+  </div>
+  <button class="home-btn" id="homeBtn">Home</button>
+</header>
+
+<section class="hero custom-hero" id="top">
+  <div class="tech-bg"></div>
+  <div class="hero-overlay">
+    <h1 class="hero-title">Informatica Telefonia Centro copie</h1>
+  </div>
+</section>
+
+<div class="big-cats">
+  <button type="button" class="big-btn" id="btnComputer">Computer e periferiche</button>
+  <button type="button" class="big-btn" id="btnTelefonia">Telefonia</button>
+  <button type="button" class="big-btn" id="btnCopie">Centro copie</button>
+</div>
+
+<section class="products-section" id="categoriaSection" style="display:none;">
+  <div class="products" id="categoriaGrid"></div>
+</section>
+
+<section class="products-section" id="offerteSection">
+  <div class="section-head"><h2>Prodotti in evidenza</h2></div>
+  <div class="products" id="offerteGrid"></div>
+</section>
+
+<section class="contacts">
+  <div class="contact-grid">
+    <div class="contact-item">
+      <strong>📍 Indirizzo</strong>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Corso+Gran+Priorato+di+Malta+40+Capua" target="_blank">Corso Gran Priorato di Malta n. 40<br>Capua (CE)</a></p>
+    </div>
+    <div class="contact-item"><strong>📞 Telefono</strong><p>339 318 5024</p></div>
+    <div class="contact-item"><strong>📧 Email</strong><p><a href="mailto:blablastore@libero.it">blablastore@libero.it</a></p></div>
+    <div class="contact-item"><strong>💬 WhatsApp</strong><p><a href="https://wa.me/393393185024" target="_blank">Scrivici su WhatsApp</a></p></div>
+  </div>
+</section>
+
+<script>
+const PHONE = "393393185024";
+const FALLBACK_CSV = `nome,prezzo,categoria,offerta,descrizione,immagine
+Samsung A15,199,Telefonia,1,Smartphone affidabile per uso quotidiano,https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80
+Stampante HP,89,Computer e periferiche,1,Stampante pratica per casa e ufficio,https://images.unsplash.com/photo-1612810806695-30f7a8258391?auto=format&fit=crop&w=800&q=80
+Notebook Lenovo,499,Computer e periferiche,0,Notebook versatile per studio e lavoro,https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80
+Auricolari Bluetooth,29,Telefonia,0,Audio nitido e connessione rapida,https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80
+Volantini A5 100 copie,15,Centro copie,1,Stampa volantini a colori,https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80
+Fotocopie B/N 100 fogli,8,Centro copie,0,Fotocopie rapide in bianco e nero,https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=800&q=80`;
+
+let PRODUCTS = [];
+
+function splitCSVLine(line){
+  const result=[]; let current=""; let inQuotes=false;
+  for(let i=0;i<line.length;i++){
+    const char=line[i];
+    if(char === '"' && line[i+1] === '"'){current+='"'; i++; continue;}
+    if(char === '"'){inQuotes=!inQuotes; continue;}
+    if(char === "," && !inQuotes){result.push(current); current=""; continue;}
+    current += char;
+  }
+  result.push(current);
+  return result;
+}
+
+function parseCSV(text){
+  const rows=String(text||"").trim().split(/\r?\n/).filter(Boolean);
+  if(rows.length<2) return [];
+  const headers=splitCSVLine(rows.shift()).map(h=>h.trim().toLowerCase());
+  return rows.map(row=>{
+    const values=splitCSVLine(row);
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=(values[i]||"").trim());
+    obj.prezzo=Number(String(obj.prezzo||"0").replace(",", "."));
+    obj.offerta=["1","true","si","sì","yes"].includes(String(obj.offerta).toLowerCase());
+    return obj;
+  }).filter(p=>p.nome);
+}
+
+function euro(v){return Number(v||0).toFixed(2).replace(".", ",");}
+
+function imageHTML(product){
+  const img=product.immagine||"";
+  if(img.trim()){
+    return `<div class="img-box"><img src="${img}" alt="${product.nome}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;img-placeholder&quot;>${product.nome}</div>'"></div>`;
+  }
+  return `<div class="img-box"><div class="img-placeholder">${product.nome}</div></div>`;
+}
+
+function createCard(product){
+  const msg=encodeURIComponent("Ciao, sono interessato a "+product.nome+" al prezzo di €"+euro(product.prezzo)+".");
+  return `
+    <div class="card">
+      ${imageHTML(product)}
+      <div class="badges">
+        ${product.offerta ? '<span class="badge badge-offer">Prodotti in evidenza</span>' : ''}
+        <span class="badge badge-cat">${product.categoria || 'Prodotto'}</span>
+      </div>
+      <h3>${product.nome}</h3>
+      <div class="desc">${product.descrizione || ''}</div>
+      <div class="price">€${euro(product.prezzo)}</div>
+      <a class="wa-btn" href="https://wa.me/${PHONE}?text=${msg}" target="_blank">WhatsApp</a>
+    </div>`;
+}
+
+function renderOffers(){
+  const offers=PRODUCTS.filter(p=>p.offerta);
+  document.getElementById("offerteGrid").innerHTML = offers.length
+    ? offers.map(createCard).join("")
+    : `<div class="card"><h3>Nessun prodotto in evidenza</h3></div>`;
+}
+
+function showCategory(categoryName){
+  const items=PRODUCTS.filter(p=>(p.categoria||"").trim().toLowerCase()===categoryName.trim().toLowerCase());
+  document.getElementById("categoriaGrid").innerHTML = items.length
+    ? items.map(createCard).join("")
+    : `<div class="card"><h3>Nessun prodotto</h3><div class="desc">Categoria vuota.</div></div>`;
+  document.getElementById("offerteSection").style.display="none";
+  document.getElementById("categoriaSection").style.display="block";
+  document.getElementById("categoriaSection").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function goHome(){
+  document.getElementById("categoriaGrid").innerHTML="";
+  document.getElementById("categoriaSection").style.display="none";
+  document.getElementById("offerteSection").style.display="block";
+  document.getElementById("top").scrollIntoView({behavior:"smooth", block:"start"});
+  renderOffers();
+}
+
+async function loadProducts(){
+  try{
+    const response=await fetch("prodotti.csv", {cache:"no-store"});
+    if(!response.ok) throw new Error("CSV non trovato");
+    const parsed=parseCSV(await response.text());
+    PRODUCTS=parsed.length ? parsed : parseCSV(FALLBACK_CSV);
+  }catch(e){
+    PRODUCTS=parseCSV(FALLBACK_CSV);
+  }
+  renderOffers();
+}
+
+document.getElementById("btnComputer").addEventListener("click",()=>showCategory("Computer e periferiche"));
+document.getElementById("btnTelefonia").addEventListener("click",()=>showCategory("Telefonia"));
+document.getElementById("btnCopie").addEventListener("click",()=>showCategory("Centro copie"));
+document.getElementById("homeBtn").addEventListener("click",goHome);
+loadProducts();
+</script>
+</body>
+</html>
